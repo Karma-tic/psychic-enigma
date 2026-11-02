@@ -1,0 +1,802 @@
+[
+  {
+    "id": "1",
+    "gender": "Male",
+    "marital_status": "Unmarried",
+    "spouse_status": "NA",
+    "status_id": "NA",
+    "allowed": "",
+    "add_member_owner": "Aliza ",
+    "new_reg_owner": "Vaibhav"
+  },
+  {
+    "id": "2",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "Unmarried",
+    "status_id": "Alive",
+    "allowed": "Allowed",
+    "add_member_owner": "Aliza ",
+    "new_reg_owner": "Vaibhav"
+  },
+  {
+    "id": "3",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "Unmarried",
+    "status_id": "Invalid",
+    "allowed": "Not allowed",
+    "add_member_owner": "Aliza ",
+    "new_reg_owner": "Vaibhav"
+  },
+  {
+    "id": "4",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "Unmarried",
+    "status_id": "Death",
+    "allowed": "Not allowed",
+    "add_member_owner": "Aliza ",
+    "new_reg_owner": "Vaibhav"
+  },
+  {
+    "id": "5",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "Unmarried",
+    "status_id": "Deleted",
+    "allowed": "Not allowed",
+    "add_member_owner": "Aliza ",
+    "new_reg_owner": "Vaibhav"
+  },
+  {
+    "id": "6",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "Unmarried",
+    "status_id": "Suspect",
+    "allowed": "Not allowed",
+    "add_member_owner": "Aliza ",
+    "new_reg_owner": "Vaibhav"
+  },
+  {
+    "id": "7",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "Married",
+    "status_id": "Alive",
+    "allowed": "Not allowed",
+    "add_member_owner": "Aliza ",
+    "new_reg_owner": "Vaibhav"
+  },
+  {
+    "id": "8",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "Divorced",
+    "status_id": "Alive",
+    "allowed": "Allowed",
+    "add_member_owner": "Aliza ",
+    "new_reg_owner": "Vaibhav"
+  },
+  {
+    "id": "9",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "Divorced",
+    "status_id": "Invalid",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Aliza ",
+    "new_reg_owner": "Vaibhav"
+  },
+  {
+    "id": "10",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "Divorced",
+    "status_id": "Death",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Aliza ",
+    "new_reg_owner": "Vaibhav"
+  },
+  {
+    "id": "11",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "Divorced",
+    "status_id": "Deleted",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Aliza ",
+    "new_reg_owner": "Vaibhav"
+  },
+  {
+    "id": "12",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "Divorced",
+    "status_id": "Suspect",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Aliza ",
+    "new_reg_owner": "Vaibhav"
+  },
+  {
+    "id": "13",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "widow",
+    "status_id": "Alive",
+    "allowed": "Allowed",
+    "add_member_owner": "Sujit",
+    "new_reg_owner": "Aliza"
+  },
+  {
+    "id": "14",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "widow",
+    "status_id": "Invalid",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Sujit",
+    "new_reg_owner": "Aliza"
+  },
+  {
+    "id": "15",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "widow",
+    "status_id": "Death",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Sujit",
+    "new_reg_owner": "Aliza"
+  },
+  {
+    "id": "16",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "widow",
+    "status_id": "Deleted",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Sujit",
+    "new_reg_owner": "Aliza"
+  },
+  {
+    "id": "17",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "widow",
+    "status_id": "Suspect",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Sujit",
+    "new_reg_owner": "Aliza"
+  },
+  {
+    "id": "18",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "Abandoned",
+    "status_id": " NA",
+    "allowed": "Not allowed",
+    "add_member_owner": "Sujit",
+    "new_reg_owner": "Aliza"
+  },
+  {
+    "id": "19",
+    "gender": "Male",
+    "marital_status": "Married",
+    "spouse_status": "Age",
+    "status_id": "18 year above",
+    "allowed": "Allowed",
+    "add_member_owner": "Sujit",
+    "new_reg_owner": "Aliza"
+  },
+  {
+    "id": "20",
+    "gender": "Male",
+    "marital_status": "Divorce",
+    "spouse_status": "Spouse details will not be entered",
+    "status_id": "",
+    "allowed": "NA",
+    "add_member_owner": "Sujit",
+    "new_reg_owner": "Aliza"
+  },
+  {
+    "id": "21",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Unmarried",
+    "status_id": "Alive",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Sujit",
+    "new_reg_owner": "Aliza"
+  },
+  {
+    "id": "22",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Unmarried",
+    "status_id": "Invalid",
+    "allowed": "Not allowed",
+    "add_member_owner": "Sujit",
+    "new_reg_owner": "Aliza"
+  },
+  {
+    "id": "23",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Unmarried",
+    "status_id": "Death",
+    "allowed": "Allowed",
+    "add_member_owner": "Shoib",
+    "new_reg_owner": "Sujit"
+  },
+  {
+    "id": "24",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Unmarried",
+    "status_id": "Deleted",
+    "allowed": "Not allowed",
+    "add_member_owner": "Shoib",
+    "new_reg_owner": "Sujit"
+  },
+  {
+    "id": "25",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Unmarried",
+    "status_id": "Suspect",
+    "allowed": "Not allowed",
+    "add_member_owner": "Shoib",
+    "new_reg_owner": "Sujit"
+  },
+  {
+    "id": "26",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Married",
+    "status_id": "Alive",
+    "allowed": "Not allowed",
+    "add_member_owner": "Shoib",
+    "new_reg_owner": "Sujit"
+  },
+  {
+    "id": "27",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Married",
+    "status_id": "Invalid",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Shoib",
+    "new_reg_owner": "Sujit"
+  },
+  {
+    "id": "28",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Married((Only samgra id with Spouse details blank will be allowed)",
+    "status_id": "Death",
+    "allowed": "Allowed",
+    "add_member_owner": "Shoib",
+    "new_reg_owner": "Sujit"
+  },
+  {
+    "id": "29",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Married",
+    "status_id": "Deleted",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Shoib",
+    "new_reg_owner": "Sujit"
+  },
+  {
+    "id": "30",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Married",
+    "status_id": "Suspect",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Shoib",
+    "new_reg_owner": "Sujit"
+  },
+  {
+    "id": "31",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Divorced",
+    "status_id": "Alive",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Shoib",
+    "new_reg_owner": "Sujit"
+  },
+  {
+    "id": "32",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Divorced",
+    "status_id": "Invalid",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Shoib",
+    "new_reg_owner": "Sujit"
+  },
+  {
+    "id": "33",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Divorced",
+    "status_id": "Death",
+    "allowed": "Allowed",
+    "add_member_owner": "Shoib",
+    "new_reg_owner": "Sujit"
+  },
+  {
+    "id": "34",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Divorced",
+    "status_id": "Deleted",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Anshuman",
+    "new_reg_owner": "Shoaib"
+  },
+  {
+    "id": "35",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Divorced",
+    "status_id": "Suspect",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Anshuman",
+    "new_reg_owner": "Shoaib"
+  },
+  {
+    "id": "36",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Abandoned",
+    "status_id": "Alive",
+    "allowed": "Not allowed",
+    "add_member_owner": "Anshuman",
+    "new_reg_owner": "Shoaib"
+  },
+  {
+    "id": "37",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Abandoned",
+    "status_id": "Invalid",
+    "allowed": "Not allowed",
+    "add_member_owner": "Anshuman",
+    "new_reg_owner": "Shoaib"
+  },
+  {
+    "id": "38",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Abandoned",
+    "status_id": "Death",
+    "allowed": "Allowed",
+    "add_member_owner": "Anshuman",
+    "new_reg_owner": "Shoaib"
+  },
+  {
+    "id": "39",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Abandoned",
+    "status_id": "Deleted",
+    "allowed": "Not allowed",
+    "add_member_owner": "Anshuman",
+    "new_reg_owner": "Shoaib"
+  },
+  {
+    "id": "40",
+    "gender": "Male",
+    "marital_status": "Widower",
+    "spouse_status": "Abandoned",
+    "status_id": "Suspect",
+    "allowed": "Not allowed",
+    "add_member_owner": "Anshuman",
+    "new_reg_owner": "Shoaib"
+  },
+  {
+    "id": "41",
+    "gender": "Female",
+    "marital_status": "Unmarried",
+    "spouse_status": "NA",
+    "status_id": "NA",
+    "allowed": "",
+    "add_member_owner": "Anshuman",
+    "new_reg_owner": "Shoaib"
+  },
+  {
+    "id": "42",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "Unmarried",
+    "status_id": "Alive",
+    "allowed": "Allowed",
+    "add_member_owner": "Anshuman",
+    "new_reg_owner": "Shoaib"
+  },
+  {
+    "id": "43",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "Unmarried",
+    "status_id": "Invalid",
+    "allowed": "Not allowed",
+    "add_member_owner": "Anshuman",
+    "new_reg_owner": "Shoaib"
+  },
+  {
+    "id": "44",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "Unmarried",
+    "status_id": "Death",
+    "allowed": "Not allowed",
+    "add_member_owner": "Anshuman",
+    "new_reg_owner": "Shoaib"
+  },
+  {
+    "id": "45",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "Unmarried",
+    "status_id": "Deleted",
+    "allowed": "Not allowed",
+    "add_member_owner": "Anshuman",
+    "new_reg_owner": "Shoaib"
+  },
+  {
+    "id": "46",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "Unmarried",
+    "status_id": "Suspect",
+    "allowed": "Not allowed",
+    "add_member_owner": "Anshuman",
+    "new_reg_owner": "Shoaib"
+  },
+  {
+    "id": "47",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "Married",
+    "status_id": "Alive",
+    "allowed": "Not allowed",
+    "add_member_owner": "Anshuman",
+    "new_reg_owner": "Shoaib"
+  },
+  {
+    "id": "48",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "Divorce",
+    "status_id": "Alive",
+    "allowed": "Allowed",
+    "add_member_owner": "Anshuman",
+    "new_reg_owner": "Shoaib"
+  },
+  {
+    "id": "49",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "Divorced",
+    "status_id": "Invalid",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Sonu",
+    "new_reg_owner": "Anshuman"
+  },
+  {
+    "id": "50",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "Divorced",
+    "status_id": "Death",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Sonu",
+    "new_reg_owner": "Anshuman"
+  },
+  {
+    "id": "51",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "Divorced",
+    "status_id": "Deleted",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Sonu",
+    "new_reg_owner": "Anshuman"
+  },
+  {
+    "id": "52",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "Divorced",
+    "status_id": "Suspect",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Sonu",
+    "new_reg_owner": "Anshuman"
+  },
+  {
+    "id": "53",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "widow",
+    "status_id": "Alive",
+    "allowed": "Allowed",
+    "add_member_owner": "Sonu",
+    "new_reg_owner": "Anshuman"
+  },
+  {
+    "id": "54",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "widow",
+    "status_id": "Invalid",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Sonu",
+    "new_reg_owner": "Anshuman"
+  },
+  {
+    "id": "55",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "widow",
+    "status_id": "Death",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Sonu",
+    "new_reg_owner": "Anshuman"
+  },
+  {
+    "id": "56",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "widow",
+    "status_id": "Deleted",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Sonu",
+    "new_reg_owner": "Anshuman"
+  },
+  {
+    "id": "57",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "widow",
+    "status_id": "Suspect",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Sonu",
+    "new_reg_owner": "Anshuman"
+  },
+  {
+    "id": "58",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "Abandoned",
+    "status_id": " NA",
+    "allowed": "Not allowed",
+    "add_member_owner": "Sonu",
+    "new_reg_owner": "Anshuman"
+  },
+  {
+    "id": "59",
+    "gender": "Female",
+    "marital_status": "Married",
+    "spouse_status": "Age",
+    "status_id": "21 year and above",
+    "allowed": "Allowed",
+    "add_member_owner": "Sonu",
+    "new_reg_owner": "Anshuman"
+  },
+  {
+    "id": "60",
+    "gender": "Female",
+    "marital_status": "Divorce",
+    "spouse_status": "Spouse details will not be entered",
+    "status_id": "",
+    "allowed": "NA",
+    "add_member_owner": "Sonu",
+    "new_reg_owner": "Anshuman"
+  },
+  {
+    "id": "61",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Unmarried",
+    "status_id": "Alive",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Sonu",
+    "new_reg_owner": "Anshuman"
+  },
+  {
+    "id": "62",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Unmarried",
+    "status_id": "Invalid",
+    "allowed": "Not allowed",
+    "add_member_owner": "Sonu",
+    "new_reg_owner": "Anshuman"
+  },
+  {
+    "id": "63",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Unmarried",
+    "status_id": "Death",
+    "allowed": "Allowed",
+    "add_member_owner": "Sonu",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "64",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Unmarried",
+    "status_id": "Deleted",
+    "allowed": "Not allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "65",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Unmarried",
+    "status_id": "Suspect",
+    "allowed": "Not allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "66",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Married",
+    "status_id": "Alive",
+    "allowed": "Not allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "67",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Married",
+    "status_id": "Invalid",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "68",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Married((Only samgra id with Spouse details blank will be allowed)",
+    "status_id": "Death",
+    "allowed": "Allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "69",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Married",
+    "status_id": "Deleted",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "70",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Married",
+    "status_id": "Suspect",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "71",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Divorced",
+    "status_id": "Alive",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "72",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Divorced",
+    "status_id": "Invalid",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "73",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Divorced",
+    "status_id": "Death",
+    "allowed": "Allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "74",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Divorced",
+    "status_id": "Deleted",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "75",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Divorced",
+    "status_id": "Suspect",
+    "allowed": "Not Allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "76",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Abandoned",
+    "status_id": "Alive",
+    "allowed": "Not allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "77",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Abandoned",
+    "status_id": "Invalid",
+    "allowed": "Not allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "78",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Abandoned",
+    "status_id": "Death",
+    "allowed": "Allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "79",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Abandoned",
+    "status_id": "Deleted",
+    "allowed": "Not allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  },
+  {
+    "id": "80",
+    "gender": "Female",
+    "marital_status": "Widower",
+    "spouse_status": "Abandoned",
+    "status_id": "Suspect",
+    "allowed": "Not allowed",
+    "add_member_owner": "Vaibhav",
+    "new_reg_owner": "Sonu"
+  }
+]

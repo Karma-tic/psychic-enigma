@@ -1,0 +1,171 @@
+[
+  {
+    "id": "BUG-01",
+    "title": "[P0 Blocker] Final Submission ('InsertRequest') crashes with HTTP 500 (MDL_00_000) & Red Modal despite 100% valid relations (Husband, Son, Self)",
+    "description": "[P0 Blocker] Final Submission ('InsertRequest') crashes with HTTP 500 (MDL_00_000) & Red Modal despite 100% valid relations (Husband, Son, Self):In New Registration, selecting Married with spouse linkage causes POST /ComSer/RequestMaster/InsertRequest to fail with HTTP 500. Developer assertion that this was caused by selecting 'Nephew' was refuted: re-tested with 100% valid relations (Member 5 = Husband, Member 4 = Son), and the API still crashed with HTTP 500. Decrypted response confirms unhandled backend/DB crash: ErrorCode: MDL_00_000, Language: en, Resource: SCD2.Common.Utilities.Resource.ErrorMessages.ErrorMessages_en (Message resource not found).",
+    "status": "Open",
+    "type": "Backend / Business Logic Blocker",
+    "priority": "P0 (Blocker)",
+    "owner": "Backend Team",
+    "evidence": [
+      "Preview screen with 'Failed' modal popup",
+      "DBeaver query showing 0 rows in TBL_COMMON_REQUEST_MASTER"
+    ]
+  },
+  {
+    "id": "BUG-02",
+    "title": "Frontend State Loss",
+    "description": "Frontend State Loss: Additional Married Member's Marriage Certificate Dropped from Final API Payload:When adding a second married member (e.g. Mohd Shoaib) with manual spouse entry and uploading a marriage certificate PDF, the Preview table visually indicates the document is attached. However, the outgoing InsertRequest JSON payload completely omits the document from DocumentRequestModels (only HoF's document is included), causing backend validation failure due to missing mandatory marriage document.",
+    "status": "Open",
+    "type": "Functional / Data Loss",
+    "priority": "P2 (Medium)",
+    "owner": "Nazeem Sir / Backend",
+    "evidence": [
+      "'Spouse Details - Married' modal showing PDF attached",
+      "Decrypted InsertRequest payload showing only 1 document in DocumentRequestModels"
+    ]
+  },
+  {
+    "id": "BUG-03",
+    "title": "Aadhaar Unmask Eye Icon Completely Unresponsive on Mobile & Touch Devices",
+    "description": "Aadhaar Unmask Eye Icon Completely Unresponsive on Mobile & Touch Devices:On mobile browsers (iOS/Android) and touch emulation, tapping the Eye icon (fa-eye) next to 'Enter Aadhaar or VID' fails to unmask the digits. Angular bundle analysis reveals the button only listens to desktop mouse events (mousedown/mouseup/mouseleave) and completely lacks mobile touch event handlers (touchstart/touchend) or a click-toggle state.",
+    "status": "Open",
+    "type": "Mobile / Functional Defect",
+    "priority": "P2 (Medium)",
+    "owner": "Nazeem Sir",
+    "evidence": [
+      "Mobile view (iPhone emulation) showing unmask eye icon unresponsive",
+      "Decompiled chunk code showing only mousedown/mouseup listeners"
+    ]
+  },
+  {
+    "id": "BUG-04",
+    "title": "UI / Alignment - 'Read More' / '\u0905\u0927\u093f\u0915 \u092a\u0922\u093c\u0947\u0902' Action Buttons Not Horizontally Aligned Across Sibling Service Cards",
+    "description": "UI / Alignment - 'Read More' / '\u0905\u0927\u093f\u0915 \u092a\u0922\u093c\u0947\u0902' Action Buttons Not Horizontally Aligned Across Sibling Service Cards:In the 'Our Services' / '\u0939\u092e\u093e\u0930\u0940 \u0938\u0947\u0935\u093e\u090f\u0901' section, the four cards display their action buttons at varying vertical heights rather than on a single, uniform horizontal baseline. Due to differing paragraph lengths, each button immediately follows its text, appearing staggered with uneven white gaps underneath.",
+    "status": "Open",
+    "type": "UI / Layout & Alignment",
+    "priority": "P2 (Medium)",
+    "owner": "Poorvi Ma'am",
+    "evidence": [
+      "English Services cards showing staggered 'Read More' buttons (2.png)",
+      "Hindi Services cards showing staggered '\u0905\u0927\u093f\u0915 \u092a\u0922\u093c\u0947\u0902' buttons (10.png)"
+    ]
+  },
+  {
+    "id": "BUG-05",
+    "title": "UI / Content - Action Buttons Display Double Trailing Periods ('View More..' / '\u0905\u0927\u093f\u0915 \u091c\u093e\u0928\u0915\u093e\u0930\u0940..')",
+    "description": "UI / Content - Action Buttons Display Double Trailing Periods ('View More..' / '\u0905\u0927\u093f\u0915 \u091c\u093e\u0928\u0915\u093e\u0930\u0940..'):The call-to-action buttons in the 'About Samagra' and landing sections contain an unnecessary double full-stop (..) in both English ('View More..') and Hindi ('\u0905\u0927\u093f\u0915 \u091c\u093e\u0928\u0915\u093e\u0930\u0940..'). Typography should be cleaned to standard 'View More' and '\u0905\u0927\u093f\u0915 \u091c\u093e\u0928\u0915\u093e\u0930\u0940'.",
+    "status": "Open",
+    "type": "UI / Typography & Content",
+    "priority": "P2 (Medium)",
+    "owner": "Nazeem Sir",
+    "evidence": [
+      "English button showing 'View More..' (4.png)",
+      "Hindi button showing '\u0905\u0927\u093f\u0915 \u091c\u093e\u0928\u0915\u093e\u0930\u0940..' (7.png)"
+    ]
+  },
+  {
+    "id": "BUG-06",
+    "title": "UI / Content - Redundant Duplicate Eligibility Criteria Displayed in 'Eligibility' Instruction Card",
+    "description": "UI / Content - Redundant Duplicate Eligibility Criteria Displayed in 'Eligibility' Instruction Card:On the Family Registration instructions page, the Eligibility / \u092a\u093e\u0924\u094d\u0930\u0924\u093e card repeats the exact same age rule twice: Point 1 ('The head of the family must be 18 years of age or above') and Point 2 ('Only a person aged 18 years or above may apply as the head of the family'). Point 2 should be removed.",
+    "status": "Open",
+    "type": "Content / UX Defect",
+    "priority": "P2 (Medium)",
+    "owner": "Nazeem Sir",
+    "evidence": [
+      "English instructions page showing duplicate points 1 & 2 (1.png)",
+      "Hindi instructions page showing duplicate points 1 & 2 (2.png)"
+    ]
+  },
+  {
+    "id": "BUG-07",
+    "title": "Hindi Transliteration Duplication Bug",
+    "description": "Hindi Transliteration Duplication Bug:English Last Name is 'Shaikh', but Last Name (In Hindi) is auto-populated as '\u0905\u0932\u0940\u091c\u093c\u093e' (repeating the first name) instead of '\u0936\u0947\u0916'. Root cause: Angular component model binds first name transliteration output to both first and last name fields.",
+    "status": "Open",
+    "type": "Functional / Data Integrity",
+    "priority": "P2 (Medium)",
+    "owner": "Nazeem Sir",
+    "evidence": [
+      "hof_page_1.png (English screen showing Shaikh -> \u0905\u0932\u0940\u091c\u093c\u093e)",
+      "hof_page_4.png (Hindi screen showing Shaikh -> \u0905\u0932\u0940\u091c\u093c\u093e)"
+    ]
+  },
+  {
+    "id": "BUG-08",
+    "title": "UI / Content - Address String Displays Consecutive Double Commas (', ,')",
+    "description": "UI / Content - Address String Displays Consecutive Double Commas (', ,'):On the HoF Demographic Details screen, Address (As per Aadhaar) displays '240 Near Pani Ki Tanki, , Ujjain, 456010' due to unhandled null/empty address sub-fields during string concatenation.",
+    "status": "Open",
+    "type": "UI / Text Formatting",
+    "priority": "P2 (Medium)",
+    "owner": "Nazeem Sir",
+    "evidence": [
+      "hof_page_2.png (Address showing double comma)",
+      "hof_page_5.png (Hindi address showing double comma)"
+    ]
+  },
+  {
+    "id": "BUG-09",
+    "title": "UI / Content - Dropdown Placeholder Wording Inconsistency Across Form Fields",
+    "description": "UI / Content - Dropdown Placeholder Wording Inconsistency Across Form Fields:Demographic dropdown placeholders inconsistently mix phrasing: 'Select Local Body' vs 'Please Select Zone' (with 'Please') vs 'Select Village/Ward'. In Hindi, Zone placeholder omits '\u0917\u094d\u0930\u093e. \u092a\u0902.' ('-- \u091c\u093c\u094b\u0928 \u091a\u0941\u0928\u0947\u0902 --').",
+    "status": "Open",
+    "type": "UI / Text Inconsistency",
+    "priority": "P2 (Medium)",
+    "owner": "Nazeem Sir",
+    "evidence": [
+      "hof_page_3.png (English dropdown placeholders)",
+      "hof_page_6.png (Hindi dropdown placeholders)"
+    ]
+  },
+  {
+    "id": "BUG-10",
+    "title": "Form Input Text Leak / Corruption in Infant Member Modal",
+    "description": "Form Input Text Leak / Corruption in Infant Member Modal:In the \"Add Member Without Aadhaar (Age Less than 1 year)\" modal, Father's Name (In Hindi)* and Mother's Name (In Hindi)* are auto-populated with corrupted UI label text '.    \u091c\u0928\u0938\u093e\u0902\u0916\u094d\u092f\u093f\u0915\u0940\u092f \u091c\u093e\u0928\u0915' (a mangled fragment of the Step 1 section header \"\u091c\u0928\u0938\u093e\u0902\u0916\u094d\u092f\u093f\u0915\u0940\u092f \u091c\u093e\u0928\u0915\u093e\u0930\u0940\") instead of remaining blank or accepting proper transliterated input.",
+    "status": "Open",
+    "type": "Functional / Data Integrity",
+    "priority": "P2 (Medium)",
+    "owner": "Nazeem Sir",
+    "evidence": [
+      "step2_1.png (Father & Mother Hindi name showing .   \u091c\u0928\u0938\u093e\u0902\u0916\u094d\u092f\u093f\u0915\u0940\u092f \u091c\u093e\u0928\u0915)",
+      "step2_2.png (Corrupted text persists after entering English names)"
+    ]
+  },
+  {
+    "id": "BUG-11",
+    "title": "Relation to HoF in Infant Flow (Closed - Working as Designed)",
+    "description": "Relation to HoF in Infant Flow (Closed - Working as Designed):Confirmed during testing that Relation assignment is intentionally positioned on the subsequent page (Application Preview / Relationship Mapping step) rather than inside the initial member addition modal.",
+    "status": "Closed (As Designed)",
+    "type": "Business Logic / Form Omission",
+    "priority": "P2 (Medium)",
+    "owner": "Nazeem Sir / Backend Team",
+    "evidence": [
+      "step2_1.png (Modal fields showing no Relation dropdown)",
+      "step2_3.png (Add Member modal overview)"
+    ]
+  },
+  {
+    "id": "BUG-12",
+    "title": "Silent Validation & Missing Error Message on Parent Hindi Names",
+    "description": "Silent Validation & Missing Error Message on Parent Hindi Names:The input fields for Father's and Mother's Name (In Hindi) permit entering leading dots and full stops ('. . . ..'). While an underlying regex validator flags full stops as invalid, the UI displays ZERO inline error feedback ('Special characters not allowed'). As a result, the Angular form becomes silently invalid, and clicking 'Add Member' does nothing with no indication of what field failed. Entering clean names without full stops allows submission to succeed.",
+    "status": "Open",
+    "type": "Functional / P0 Blocker",
+    "priority": "P2 (Medium)",
+    "owner": "Nazeem Sir (Angular Team)",
+    "evidence": [
+      "media_1793620801108_7c3e32d8.png (Father Hindi name showing . . . ..\u0905\u0902\u0917\u094d\u0930\u091c)",
+      "session_step2.har (Network log showing 0 HTTP calls on click)"
+    ]
+  },
+  {
+    "id": "BUG-13",
+    "title": "Zero Backend Validation & Sanitization on Hindi Demographic Name Fields",
+    "description": "Zero Backend Validation & Sanitization on Hindi Demographic Name Fields:The backend .NET API (DrtAddMember) performs zero validation or sanitization on FatherNameHi and MotherNameHi fields. It permitted over 250 characters of arbitrary English prose ('Steps to Reproduce: Proceed to Step 1...') containing punctuation, English alphabets, and quotes to be saved directly into the database without rejection or sanitization.",
+    "status": "Open",
+    "type": "Security / Data Integrity",
+    "priority": "P2 (Medium)",
+    "owner": "Backend Team",
+    "evidence": [
+      "GetTempFamilyDetail decrypted JSON response showing 250+ char English bug text in FatherNameHi",
+      "step2_member_added.png"
+    ]
+  }
+]
