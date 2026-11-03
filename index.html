@@ -16,16 +16,6 @@
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace']
-          },
-          colors: {
-            brand: {
-              50: '#eef2ff',
-              100: '#e0e7ff',
-              500: '#6366f1',
-              600: '#4f46e5',
-              700: '#4338ca',
-              900: '#312e81'
-            }
           }
         }
       }
@@ -58,17 +48,17 @@
           <div>
             <div class="font-bold text-lg tracking-tight flex items-center space-x-2">
               <span>SCD 2.0 QA Hub</span>
-              <span class="bg-indigo-500/30 text-indigo-300 text-xs px-2 py-0.5 rounded-full font-mono border border-indigo-400/30">UAT Testing</span>
+              <span class="bg-indigo-500/30 text-indigo-300 text-xs px-2 py-0.5 rounded-full font-mono border border-indigo-400/30">UAT & Staging</span>
             </div>
-            <p class="text-xs text-slate-400">Samagra Citizen Database 2.0 · Comprehensive Test & Architecture Suite</p>
+            <p class="text-xs text-slate-400">Samagra Citizen Database 2.0 · Comprehensive Engineering & Onboarding Suite</p>
           </div>
         </div>
         <div class="flex items-center space-x-4">
           <div class="hidden sm:flex items-center space-x-2 text-xs bg-slate-800 py-1.5 px-3 rounded-lg border border-slate-700">
             <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span class="text-slate-300">Target: <strong class="text-white">172.18.210.22 (SCDNEW_2-0)</strong></span>
+            <span class="text-slate-300">VPN: <strong class="text-white">MotionPro Active (103.86.26.3)</strong></span>
           </div>
-          <a href="https://github.com/Karma-tic/psychic-enigma" target="_blank" class="text-slate-400 hover:text-white transition text-lg">
+          <a href="https://github.com/Karma-tic/psychic-enigma" target="_blank" class="text-slate-400 hover:text-white transition text-lg" title="GitHub Repository">
             <i class="fa-brands fa-github"></i>
           </a>
         </div>
@@ -81,6 +71,10 @@
         <button onclick="switchTab('dashboard')" class="tab-btn active px-3.5 py-1.5 rounded-md text-xs sm:text-sm font-medium transition text-white bg-indigo-600 flex items-center space-x-2" data-tab="dashboard">
           <i class="fa-solid fa-chart-pie"></i>
           <span>Overview</span>
+        </button>
+        <button onclick="switchTab('onboarding')" class="tab-btn px-3.5 py-1.5 rounded-md text-xs sm:text-sm font-medium transition text-slate-300 hover:text-white hover:bg-slate-700 flex items-center space-x-2" data-tab="onboarding">
+          <i class="fa-solid fa-rocket text-amber-400"></i>
+          <span>Day-1 Onboarding Guide</span>
         </button>
         <button onclick="switchTab('testing-types')" class="tab-btn px-3.5 py-1.5 rounded-md text-xs sm:text-sm font-medium transition text-slate-300 hover:text-white hover:bg-slate-700 flex items-center space-x-2" data-tab="testing-types">
           <i class="fa-solid fa-list-check"></i>
@@ -232,7 +226,259 @@
       </div>
     </section>
 
-    <!-- TAB 2: TESTING TYPES & METHODOLOGIES -->
+    <!-- TAB 2: DAY-1 ONBOARDING & ENVIRONMENT GUIDE -->
+    <section id="tab-onboarding" class="tab-content hidden space-y-6">
+      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+        <div class="flex items-center space-x-3 mb-2">
+          <div class="w-10 h-10 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-rocket"></i>
+          </div>
+          <div>
+            <h2 class="text-base font-bold text-slate-900">Day-1 Engineering Onboarding & Environment Guide</h2>
+            <p class="text-xs text-slate-500">Everything a new QA/Dev Engineer needs to get connected, understand workflows, and start testing SCD 2.0.</p>
+          </div>
+        </div>
+
+        <!-- 5 Steps Container -->
+        <div class="space-y-6 mt-6">
+
+          <!-- STEP 1: VPN & Network Access -->
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-sm font-bold text-slate-900 flex items-center space-x-2">
+                <span class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs">1</span>
+                <span>MotionPro VPN Setup (Mandatory First Step)</span>
+              </h3>
+              <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded">Pre-requisite</span>
+            </div>
+            <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+              All Staging and UAT resources run inside secured state data center subnets (<code>172.16.x.x</code> and <code>172.18.x.x</code>). Without an active MotionPro SSL-VPN tunnel, all frontends, Swagger APIs, and SQL Server database ports will fail to connect.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-2">
+                <div class="font-bold text-slate-800 mb-1 border-b pb-1">Connection Configuration:</div>
+                <div><strong>Client</strong>: MotionPro (macOS / Windows)</div>
+                <div><strong>Site Name</strong>: <code>Samara</code> / <code>UAT</code></div>
+                <div><strong>Host Address</strong>: <code class="text-indigo-600 font-mono">103.86.26.3/prx/000/http/localhost/welcome/index.html</code></div>
+                <div><strong>Username</strong>: <code class="text-indigo-600 font-mono">SAMAGRA_newstag</code></div>
+                <div><strong>Password</strong>: <code class="text-indigo-600 font-mono">STR$gtu@4792</code></div>
+                <div><strong>Mode</strong>: <code>VPN (Tunnel Mode)</code></div>
+              </div>
+
+              <!-- Evidence Screenshots -->
+              <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-xs flex items-center justify-center space-x-2">
+                <img src="screenshots/motionpro_profile_config.png" alt="MotionPro Config" class="h-32 object-contain rounded border cursor-pointer hover:opacity-90" onclick="window.open(this.src)">
+                <img src="screenshots/motionpro_vpn_list.png" alt="MotionPro List" class="h-32 object-contain rounded border cursor-pointer hover:opacity-90" onclick="window.open(this.src)">
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: Staging vs UAT Environments Matrix -->
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-sm font-bold text-slate-900 flex items-center space-x-2">
+                <span class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs">2</span>
+                <span>Staging vs. UAT Environments (Where We Test)</span>
+              </h3>
+              <span class="text-xs bg-indigo-100 text-indigo-800 font-bold px-2 py-0.5 rounded">Environment Parity</span>
+            </div>
+            <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+              We operate across two distinct environments. <strong>Staging</strong> is used for rapid component-level testing with mocked data, while <strong>UAT</strong> connects to live external telecom SMS gateways, UIDAI e-KYC, and the primary SQL Server cluster.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <!-- Staging Card -->
+              <div class="bg-white p-4 rounded-lg border border-indigo-200 shadow-xs">
+                <div class="flex items-center justify-between mb-2 pb-1 border-b">
+                  <span class="font-bold text-indigo-700 text-sm">Staging Environment</span>
+                  <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Mocked OTPs</span>
+                </div>
+                <div class="space-y-2">
+                  <div><strong>Frontend URL</strong>: <a href="https://172.16.100.5:8088" target="_blank" class="text-indigo-600 underline font-mono">https://172.16.100.5:8088</a></div>
+                  <div><strong>Frontend Login</strong>: <code>SAMAGRA_newstag</code> : <code>STR$ert@9752</code></div>
+                  <div><strong>Citizen Services (CitSer) Swagger</strong>: <a href="https://172.16.100.5:8096/swagger/index.html" target="_blank" class="text-blue-600 underline font-mono">:8096/swagger</a></div>
+                  <div><strong>Common Services (ComSer) Swagger</strong>: <a href="https://172.16.100.5:8097/swagger/index.html" target="_blank" class="text-blue-600 underline font-mono">:8097/swagger</a></div>
+                  <div class="text-[11px] text-slate-500 mt-2 bg-slate-50 p-2 rounded">
+                    <strong>Testing Quirks</strong>: Fixed Captcha (<code>TESTIN</code>), OTP is echoed in API responses, self-signed HTTPS certificates.
+                  </div>
+                </div>
+              </div>
+
+              <!-- UAT Card -->
+              <div class="bg-white p-4 rounded-lg border border-emerald-200 shadow-xs">
+                <div class="flex items-center justify-between mb-2 pb-1 border-b">
+                  <span class="font-bold text-emerald-700 text-sm">UAT Environment (Active Target)</span>
+                  <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">Live Telecom / UIDAI</span>
+                </div>
+                <div class="space-y-2">
+                  <div><strong>Frontend URL</strong>: <a href="https://samagrauat.samagra.gov.in/uat" target="_blank" class="text-emerald-600 underline font-mono">https://samagrauat.samagra.gov.in/uat</a></div>
+                  <div><strong>Frontend Access</strong>: Citizen Self-Service / Ward Officer Portal</div>
+                  <div><strong>Citizen Services (CitSer) Swagger</strong>: <a href="http://172.18.210.24:8089/swagger/index.html" target="_blank" class="text-blue-600 underline font-mono">:8089/swagger</a></div>
+                  <div><strong>Common Services (ComSer) Swagger</strong>: <a href="http://172.18.210.24:8090/swagger/index.html" target="_blank" class="text-blue-600 underline font-mono">:8090/swagger</a></div>
+                  <div class="text-[11px] text-slate-500 mt-2 bg-slate-50 p-2 rounded">
+                    <strong>Testing Quirks</strong>: Real SMS sent to telecom operators, live Aadhaar e-KYC validation via MPSEDC AUA server, strict stored procedure execution.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: Database Direct Connectivity -->
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-sm font-bold text-slate-900 flex items-center space-x-2">
+                <span class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs">3</span>
+                <span>Database Connectivity & Essential Starter Queries</span>
+              </h3>
+              <span class="text-xs bg-purple-100 text-purple-800 font-bold px-2 py-0.5 rounded">MS SQL Server</span>
+            </div>
+            <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+              We connect directly to MS SQL Server using <strong>DBeaver</strong> or <strong>Azure Data Studio</strong> to verify table inserts, audit logs, and transaction rollbacks.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs mb-4">
+              <div class="bg-white p-3.5 rounded-lg border border-slate-200 shadow-xs">
+                <div class="text-slate-500 mb-1">Host & Port</div>
+                <div class="font-mono font-bold text-slate-800 text-sm">172.18.210.22:1433</div>
+              </div>
+              <div class="bg-white p-3.5 rounded-lg border border-slate-200 shadow-xs">
+                <div class="text-slate-500 mb-1">Database Name</div>
+                <div class="font-mono font-bold text-indigo-700 text-sm">SCDNEW_2-0</div>
+              </div>
+              <div class="bg-white p-3.5 rounded-lg border border-slate-200 shadow-xs">
+                <div class="text-slate-500 mb-1">Credentials (Read / UAT)</div>
+                <div class="font-mono font-bold text-slate-800 text-xs">
+                  Read: <span class="text-indigo-600">SCD_USR_Read / UsRP@$$w0rd123</span><br>
+                  UAT: <span class="text-emerald-600">SCD_UAT / GJ@frti%2027</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Starter Queries Code Block -->
+            <div class="bg-slate-900 text-slate-100 p-4 rounded-lg font-mono text-[11px] overflow-x-auto space-y-3">
+              <div>
+                <span class="text-slate-400">-- 1. Check recent stored procedure executions & backend SQL errors:</span><br>
+                <span class="text-indigo-300">SELECT TOP 10</span> CREATED_ON, PROCEDURES_NAME, LOG_LEVEL, LOG_MESSAGE, ERROR_NO, ERROR_LINES <br>
+                <span class="text-indigo-300">FROM</span> [AUDIT_LOG].[TBL_PROCEDURE_LOG] <span class="text-indigo-300">ORDER BY</span> CREATED_ON DESC;
+              </div>
+              <div>
+                <span class="text-slate-400">-- 2. Check draft member records saved for a temporary family:</span><br>
+                <span class="text-indigo-300">SELECT</span> TEMP_SAMAGRA_ID, TEMP_FAMILY_ID, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, GENDER_ID, RELATION_ID <br>
+                <span class="text-indigo-300">FROM</span> [REQUESTS].[TBL_SAMAGRA_FAMILY_MEMBER_CRTN_RQST] <br>
+                <span class="text-indigo-300">WHERE</span> TEMP_FAMILY_ID = 100000606 <span class="text-indigo-300">ORDER BY</span> CREATED_DATE DESC;
+              </div>
+              <div>
+                <span class="text-slate-400">-- 3. Check permanent submitted request:</span><br>
+                <span class="text-indigo-300">SELECT</span> REQ_ID, MODULE_ID, TEMP_FAMILY_ID, PRIMARY_MOBILE_NUMBER, CREATED_DATE, ACTION_ID, LEVEL_ID <br>
+                <span class="text-indigo-300">FROM</span> [REQUESTS].[TBL_COMMON_REQUEST_MASTER] <br>
+                <span class="text-indigo-300">WHERE</span> TEMP_FAMILY_ID = 100000606;
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: Departmental Marital & Age Rules -->
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-sm font-bold text-slate-900 flex items-center space-x-2">
+                <span class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs">4</span>
+                <span>Departmental Business Logic & Marital Validation Rules</span>
+              </h3>
+              <span class="text-xs bg-rose-100 text-rose-800 font-bold px-2 py-0.5 rounded">Core Logic</span>
+            </div>
+            <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+              Official specifications defined by Pooja Ma'am for spousal mappings in New Registration and Add Member workflows:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+              <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs">
+                <h4 class="font-bold text-slate-800 mb-2 flex items-center space-x-1.5 text-indigo-700">
+                  <i class="fa-solid fa-heart"></i>
+                  <span>1. Marital Status – Married</span>
+                </h4>
+                <ul class="space-y-1.5 list-disc list-inside text-slate-600 text-[11px]">
+                  <li><strong>Gender</strong>: Only opposite gender is allowed.</li>
+                  <li><strong>Age Validation</strong>: Male &ge; 21 years, Female &ge; 18 years.</li>
+                  <li><strong>Allowed Spouse Status</strong>: Unmarried, Divorced, Widow.</li>
+                  <li><strong>Certificate</strong>: Marriage certificate number & document mandatory.</li>
+                </ul>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs">
+                <h4 class="font-bold text-slate-800 mb-2 flex items-center space-x-1.5 text-amber-700">
+                  <i class="fa-solid fa-link-slash"></i>
+                  <span>2. Marital Status – Divorced</span>
+                </h4>
+                <ul class="space-y-1.5 list-disc list-inside text-slate-600 text-[11px]">
+                  <li><strong>Gender</strong>: Only opposite gender is allowed.</li>
+                  <li><strong>Age Validation</strong>: Male &ge; 21 years, Female &ge; 18 years.</li>
+                  <li><strong>Allowed Spouse Status</strong>: Unmarried, Married, Divorced, Widow.</li>
+                  <li><strong>Spouse Entry</strong>: Prior spouse details not mandated in active family.</li>
+                </ul>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs">
+                <h4 class="font-bold text-slate-800 mb-2 flex items-center space-x-1.5 text-purple-700">
+                  <i class="fa-solid fa-ribbon"></i>
+                  <span>3. Marital Status – Widower</span>
+                </h4>
+                <ul class="space-y-1.5 list-disc list-inside text-slate-600 text-[11px]">
+                  <li><strong>Gender</strong>: Only opposite gender is allowed.</li>
+                  <li><strong>Spouse Status</strong>: Spouse must be marked as deceased.</li>
+                  <li><strong>Allowed Spouse Status</strong>: Unmarried, Married, Divorced, Widow.</li>
+                  <li><strong>Database Validation</strong>: If selected spouse marital status is <strong>Married</strong>, the Spouse ID must remain <strong>BLANK</strong> in the database.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 5: The 5 Official Department Modules -->
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-sm font-bold text-slate-900 flex items-center space-x-2">
+                <span class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs">5</span>
+                <span>The 5 Official Department Modules (Bug Tracker Inventory)</span>
+              </h3>
+              <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">Official Scope</span>
+            </div>
+            <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+              Official defect breakdown synced directly from the department's master workbook (<code>Samagra 2.0 UAT Bug tracker.xlsx</code>):
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 text-xs">
+              <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-xs text-center">
+                <div class="text-lg font-bold text-indigo-600">43 Bugs</div>
+                <div class="font-semibold text-slate-800 mt-1">e-KYC Module</div>
+                <div class="text-[10px] text-slate-500">Lead: Sonu Kumar Shah</div>
+              </div>
+              <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-xs text-center">
+                <div class="text-lg font-bold text-red-600">7 + 13 Bugs</div>
+                <div class="font-semibold text-slate-800 mt-1">New Registration</div>
+                <div class="text-[10px] text-slate-500">Lead: Sujeet P Singh</div>
+              </div>
+              <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-xs text-center">
+                <div class="text-lg font-bold text-amber-600">3 Bugs</div>
+                <div class="font-semibold text-slate-800 mt-1">Add Member</div>
+                <div class="text-[10px] text-slate-500">Lead: Aliza / Vaibhav</div>
+              </div>
+              <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-xs text-center">
+                <div class="text-lg font-bold text-blue-600">8 Bugs</div>
+                <div class="font-semibold text-slate-800 mt-1">Mobile De-link</div>
+                <div class="text-[10px] text-slate-500">Lead: Aliza Shaikh</div>
+              </div>
+              <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-xs text-center">
+                <div class="text-lg font-bold text-emerald-600">16 Bugs</div>
+                <div class="font-semibold text-slate-800 mt-1">Income/Caste/Domi</div>
+                <div class="text-[10px] text-slate-500">Lead: Shoaib / Anshuman</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: TESTING TYPES & SCOPE -->
     <section id="tab-testing-types" class="tab-content hidden space-y-6">
       <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
         <h2 class="text-base font-bold text-slate-900 mb-1 flex items-center space-x-2">
@@ -392,7 +638,7 @@
       </div>
     </section>
 
-    <!-- TAB 3: 5 CORE MODULES -->
+    <!-- TAB 4: 5 CORE MODULES -->
     <section id="tab-modules" class="tab-content hidden space-y-6">
       <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
         <h2 class="text-base font-bold text-slate-900 mb-1 flex items-center space-x-2">
@@ -413,7 +659,7 @@
       </div>
     </section>
 
-    <!-- TAB 4: RELATIONSHIP SCENARIO MATRIX -->
+    <!-- TAB 5: RELATIONSHIP SCENARIO MATRIX -->
     <section id="tab-scenario-matrix" class="tab-content hidden space-y-6">
       <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
@@ -465,7 +711,7 @@
       </div>
     </section>
 
-    <!-- TAB 5: DEFECT TRACKER -->
+    <!-- TAB 6: DEFECT TRACKER -->
     <section id="tab-defect-tracker" class="tab-content hidden space-y-6">
       <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
@@ -517,7 +763,7 @@
       </div>
     </section>
 
-    <!-- TAB 6: DATABASE ARCHITECTURE -->
+    <!-- TAB 7: DATABASE ARCHITECTURE -->
     <section id="tab-database-architecture" class="tab-content hidden space-y-6">
       <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
         <h2 class="text-base font-bold text-slate-900 mb-1 flex items-center space-x-2">
@@ -543,7 +789,7 @@
         <span>SCD 2.0 QA Knowledge Hub</span> · Developed by <strong>Sujeet P Singh</strong> (Dev Engineer / QA, MPSEDC)
       </div>
       <div class="flex items-center space-x-4">
-        <span>Confidential & Internal QA Use Only</span>
+        <span>Internal Departmental Knowledge Base</span>
         <a href="https://github.com/Karma-tic/psychic-enigma" class="hover:text-white transition flex items-center space-x-1">
           <i class="fa-brands fa-github"></i>
           <span>psychic-enigma</span>
