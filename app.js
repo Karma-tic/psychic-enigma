@@ -135,6 +135,8 @@ function renderMatrixTable() {
 
   const genderFilter = document.getElementById("matrix-gender-filter").value;
   const allowedFilter = document.getElementById("matrix-allowed-filter").value;
+  const ownerFilterEl = document.getElementById("matrix-owner-filter");
+  const ownerFilter = ownerFilterEl ? ownerFilterEl.value : "ALL";
   const searchFilter = document.getElementById("matrix-search").value.toLowerCase();
 
   const filtered = SCENARIO_MATRIX.filter(row => {
@@ -143,6 +145,12 @@ function renderMatrixTable() {
       const isAllowed = row.allowed.toLowerCase().includes("allowed") && !row.allowed.toLowerCase().includes("not");
       if (allowedFilter === "Allowed" && !isAllowed) return false;
       if (allowedFilter === "Not allowed" && isAllowed) return false;
+    }
+    if (ownerFilter !== "ALL") {
+      const am = (row.add_member_owner || "").toLowerCase();
+      const nr = (row.new_reg_owner || "").toLowerCase();
+      const o = ownerFilter.toLowerCase();
+      if (!am.includes(o) && !nr.includes(o)) return false;
     }
     if (searchFilter) {
       const matchText = `${row.marital_status} ${row.spouse_status} ${row.status_id} ${row.add_member_owner} ${row.new_reg_owner}`.toLowerCase();

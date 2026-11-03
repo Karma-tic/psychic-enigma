@@ -127,7 +127,7 @@ const SCENARIO_MATRIX = [
     "spouse_status": "widow",
     "status_id": "Alive",
     "allowed": "Allowed",
-    "add_member_owner": "Sujit",
+    "add_member_owner": "Sujeet P Singh",
     "new_reg_owner": "Aliza"
   },
   {
@@ -137,7 +137,7 @@ const SCENARIO_MATRIX = [
     "spouse_status": "widow",
     "status_id": "Invalid",
     "allowed": "Not Allowed",
-    "add_member_owner": "Sujit",
+    "add_member_owner": "Sujeet P Singh",
     "new_reg_owner": "Aliza"
   },
   {
@@ -147,7 +147,7 @@ const SCENARIO_MATRIX = [
     "spouse_status": "widow",
     "status_id": "Death",
     "allowed": "Not Allowed",
-    "add_member_owner": "Sujit",
+    "add_member_owner": "Sujeet P Singh",
     "new_reg_owner": "Aliza"
   },
   {
@@ -157,7 +157,7 @@ const SCENARIO_MATRIX = [
     "spouse_status": "widow",
     "status_id": "Deleted",
     "allowed": "Not Allowed",
-    "add_member_owner": "Sujit",
+    "add_member_owner": "Sujeet P Singh",
     "new_reg_owner": "Aliza"
   },
   {
@@ -167,7 +167,7 @@ const SCENARIO_MATRIX = [
     "spouse_status": "widow",
     "status_id": "Suspect",
     "allowed": "Not Allowed",
-    "add_member_owner": "Sujit",
+    "add_member_owner": "Sujeet P Singh",
     "new_reg_owner": "Aliza"
   },
   {
@@ -177,7 +177,7 @@ const SCENARIO_MATRIX = [
     "spouse_status": "Abandoned",
     "status_id": " NA",
     "allowed": "Not allowed",
-    "add_member_owner": "Sujit",
+    "add_member_owner": "Sujeet P Singh",
     "new_reg_owner": "Aliza"
   },
   {
@@ -187,7 +187,7 @@ const SCENARIO_MATRIX = [
     "spouse_status": "Age",
     "status_id": "18 year above",
     "allowed": "Allowed",
-    "add_member_owner": "Sujit",
+    "add_member_owner": "Sujeet P Singh",
     "new_reg_owner": "Aliza"
   },
   {
@@ -197,7 +197,7 @@ const SCENARIO_MATRIX = [
     "spouse_status": "Spouse details will not be entered",
     "status_id": "",
     "allowed": "NA",
-    "add_member_owner": "Sujit",
+    "add_member_owner": "Sujeet P Singh",
     "new_reg_owner": "Aliza"
   },
   {
@@ -207,7 +207,7 @@ const SCENARIO_MATRIX = [
     "spouse_status": "Unmarried",
     "status_id": "Alive",
     "allowed": "Not Allowed",
-    "add_member_owner": "Sujit",
+    "add_member_owner": "Sujeet P Singh",
     "new_reg_owner": "Aliza"
   },
   {
@@ -217,7 +217,7 @@ const SCENARIO_MATRIX = [
     "spouse_status": "Unmarried",
     "status_id": "Invalid",
     "allowed": "Not allowed",
-    "add_member_owner": "Sujit",
+    "add_member_owner": "Sujeet P Singh",
     "new_reg_owner": "Aliza"
   },
   {
@@ -228,7 +228,7 @@ const SCENARIO_MATRIX = [
     "status_id": "Death",
     "allowed": "Allowed",
     "add_member_owner": "Shoib",
-    "new_reg_owner": "Sujit"
+    "new_reg_owner": "Sujeet P Singh"
   },
   {
     "id": "24",
@@ -238,7 +238,7 @@ const SCENARIO_MATRIX = [
     "status_id": "Deleted",
     "allowed": "Not allowed",
     "add_member_owner": "Shoib",
-    "new_reg_owner": "Sujit"
+    "new_reg_owner": "Sujeet P Singh"
   },
   {
     "id": "25",
@@ -248,7 +248,7 @@ const SCENARIO_MATRIX = [
     "status_id": "Suspect",
     "allowed": "Not allowed",
     "add_member_owner": "Shoib",
-    "new_reg_owner": "Sujit"
+    "new_reg_owner": "Sujeet P Singh"
   },
   {
     "id": "26",
@@ -258,7 +258,7 @@ const SCENARIO_MATRIX = [
     "status_id": "Alive",
     "allowed": "Not allowed",
     "add_member_owner": "Shoib",
-    "new_reg_owner": "Sujit"
+    "new_reg_owner": "Sujeet P Singh"
   },
   {
     "id": "27",
@@ -268,7 +268,7 @@ const SCENARIO_MATRIX = [
     "status_id": "Invalid",
     "allowed": "Not Allowed",
     "add_member_owner": "Shoib",
-    "new_reg_owner": "Sujit"
+    "new_reg_owner": "Sujeet P Singh"
   },
   {
     "id": "28",
@@ -278,7 +278,7 @@ const SCENARIO_MATRIX = [
     "status_id": "Death",
     "allowed": "Allowed",
     "add_member_owner": "Shoib",
-    "new_reg_owner": "Sujit"
+    "new_reg_owner": "Sujeet P Singh"
   },
   {
     "id": "29",
@@ -288,7 +288,7 @@ const SCENARIO_MATRIX = [
     "status_id": "Deleted",
     "allowed": "Not Allowed",
     "add_member_owner": "Shoib",
-    "new_reg_owner": "Sujit"
+    "new_reg_owner": "Sujeet P Singh"
   },
   {
     "id": "30",
@@ -298,7 +298,7 @@ const SCENARIO_MATRIX = [
     "status_id": "Suspect",
     "allowed": "Not Allowed",
     "add_member_owner": "Shoib",
-    "new_reg_owner": "Sujit"
+    "new_reg_owner": "Sujeet P Singh"
   },
   {
     "id": "31",
@@ -308,7 +308,7 @@ const SCENARIO_MATRIX = [
     "status_id": "Alive",
     "allowed": "Not Allowed",
     "add_member_owner": "Shoib",
-    "new_reg_owner": "Sujit"
+    "new_reg_owner": "Sujeet P Singh"
   },
   {
     "id": "32",
@@ -318,7 +318,7 @@ const SCENARIO_MATRIX = [
     "status_id": "Invalid",
     "allowed": "Not Allowed",
     "add_member_owner": "Shoib",
-    "new_reg_owner": "Sujit"
+    "new_reg_owner": "Sujeet P Singh"
   },
   {
     "id": "33",
@@ -328,7 +328,7 @@ const SCENARIO_MATRIX = [
     "status_id": "Death",
     "allowed": "Allowed",
     "add_member_owner": "Shoib",
-    "new_reg_owner": "Sujit"
+    "new_reg_owner": "Sujeet P Singh"
   },
   {
     "id": "34",
