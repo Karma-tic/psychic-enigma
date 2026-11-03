@@ -249,140 +249,316 @@
       </div>
 
     
-      <!-- Environment Connectivity: Connecting to VPN, APIs, Database & Frontend -->
-      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-        <h2 class="text-base font-bold text-slate-900 mb-1 flex items-center space-x-2">
-          <i class="fa-solid fa-plug text-indigo-600"></i>
-          <span>Environment Connectivity: Connecting to VPN, APIs, Database & Frontend</span>
-        </h2>
-        <p class="text-xs text-slate-500 mb-6">
-          A step-by-step technical guide for engineers and testers on establishing network tunnels, interrogating Swagger APIs, connecting SQL clients, and understanding multi-tier communication.
-        </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
-          <!-- Step 1: VPN & Network Tunneling -->
-          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center space-x-2 mb-3">
-                <span class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-xs">1</span>
-                <h3 class="font-bold text-sm text-slate-900">MotionPro VPN Network Tunneling</h3>
-              </div>
-              <p class="text-slate-600 mb-3 leading-relaxed">
-                Why is VPN needed? All Staging (<code class="font-mono">172.16.x.x</code>) and UAT (<code class="font-mono">172.18.x.x</code>) servers are isolated inside the State Data Center. Connecting to the public gateway bridges your computer into the secure internal network.
-              </p>
-              <div class="bg-white p-3 rounded-lg border border-slate-200 font-mono text-[11px] space-y-1 text-slate-700">
-                <div><strong>Gateway Host</strong>: 103.86.26.3</div>
-                <div><strong>Tunnel Path</strong>: /prx/000/http/localhost/welcome/index.html</div>
-                <div><strong>Account</strong>: SAMAGRA_newstag</div>
-                <div><strong>Client</strong>: MotionPro SSL-VPN</div>
-                <div><strong>Mode</strong>: Full Tunnel (routes 172.16.0.0/12)</div>
-              </div>
+      <!-- BEGINNER-TO-HERO ARCHITECTURE & CONNECTIVITY MASTERCLASS -->
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-8">
+        
+        <!-- Header -->
+        <div class="border-b border-slate-200 pb-5">
+          <div class="inline-flex items-center space-x-2 bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold font-mono uppercase mb-2 border border-indigo-200">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Beginner-to-Hero Technical Masterclass</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+            How Everything Connects: Networking, Microservices, Database & Workflows
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-4xl leading-relaxed">
+            If you are new to enterprise social registries, this chapter explains every layer of the technology stack in plain, accessible engineering terms: from private IP tunneling through VPNs to client-side encryption, Swagger microservices, and MS SQL Server transaction rollbacks.
+          </p>
+        </div>
+
+        <!-- PART 1: THE NETWORKING LAYER & VPN -->
+        <div class="space-y-4">
+          <div class="flex items-center space-x-3">
+            <span class="w-8 h-8 rounded-lg bg-indigo-600 text-white font-extrabold flex items-center justify-center text-sm shadow-sm">1</span>
+            <h3 class="text-base font-bold text-slate-900">The Networking Layer: Why VPN Is Mandatory & How It Works</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            When you type a standard web address like <code class="font-mono text-indigo-600">google.com</code>, your computer sends requests over the public internet to globally routable public IP addresses. However, government citizen databases contain sensitive statutory records (Aadhaar linkages, bank accounts, family demographics). Therefore, they are hosted inside isolated <strong>State Data Centers (SDC)</strong> using <strong>RFC 1918 Private IP Subnets</strong> (specifically <code class="font-mono text-indigo-600">172.16.x.x</code> for Staging and <code class="font-mono text-indigo-600">172.18.x.x</code> for UAT).
+          </p>
+
+          <!-- Concept Callout Box -->
+          <div class="bg-indigo-50/60 border-l-4 border-indigo-600 p-4 rounded-r-lg text-xs space-y-1.5">
+            <div class="font-bold text-indigo-900 flex items-center space-x-1.5">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>Why can't you access 172.16.100.5 without VPN?</span>
             </div>
-            <div class="text-[11px] text-amber-800 bg-amber-50 p-2.5 rounded border border-amber-200 mt-3">
-              <i class="fa-solid fa-triangle-exclamation mr-1"></i><strong>Key Principle</strong>: If MotionPro disconnects, all browser tabs on port 8088 and DBeaver SQL sessions will immediately drop.
+            <p class="text-indigo-950 leading-relaxed">
+              Private IP addresses in the <code>172.16.0.0/12</code> range are mathematically non-routable on the public internet. Internet service providers (Airtel, Jio, etc.) automatically drop packets destined for these IPs. The only way in is through an <strong>SSL-VPN Gateway</strong>.
+            </p>
+          </div>
+
+          <!-- Network Flow Diagram -->
+          <div class="bg-slate-900 text-white p-5 rounded-xl font-mono text-xs overflow-x-auto shadow-inner">
+            <div class="text-[11px] text-slate-400 mb-3 border-b border-slate-800 pb-2 flex items-center justify-between">
+              <span>NETWORK PACKET ROUTING PIPELINE</span>
+              <span class="text-emerald-400">● TUNNEL ACTIVE</span>
+            </div>
+            <div class="space-y-2 leading-relaxed text-[11px]">
+              <div>[Your Laptop]</div>
+              <div class="text-indigo-400 pl-4">│  1. Packets addressed to 172.16.x.x or 172.18.x.x intercepted by virtual adapter (utun/tun0)</div>
+              <div class="text-indigo-400 pl-4">│  2. Payload encapsulated & encrypted with TLS/SSL</div>
+              <div class="text-indigo-400 pl-4">▼</div>
+              <div>[Public Internet Gateway: 103.86.26.3]</div>
+              <div class="text-emerald-400 pl-4">│  3. Gateway authenticates credentials (SAMAGRA_newstag)</div>
+              <div class="text-emerald-400 pl-4">│  4. Gateway strips SSL wrapper & injects raw packets into private data center switch</div>
+              <div class="text-emerald-400 pl-4">▼</div>
+              <div>[Private Government Intranet]</div>
+              <div class="text-slate-300 pl-8">├─► Staging Servers (172.16.100.5 : 8088 Frontend / :8096 CitSer / :8097 ComSer)</div>
+              <div class="text-slate-300 pl-8">└─► UAT Database (172.18.210.22 : 1433 MS SQL Server SCDNEW_2-0)</div>
             </div>
           </div>
 
-          <!-- Step 2: Frontends & Swagger APIs -->
-          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center space-x-2 mb-3">
-                <span class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs">2</span>
-                <h3 class="font-bold text-sm text-slate-900">Frontends & Swagger APIs (CitSer / ComSer)</h3>
-              </div>
-              <p class="text-slate-600 mb-3 leading-relaxed">
-                The architecture splits backend responsibilities between two independent .NET microservices. Testers use Swagger to test APIs directly without going through the UI:
-              </p>
-              <div class="space-y-2">
-                <div class="bg-white p-2.5 rounded border border-slate-200">
-                  <div class="font-bold text-indigo-700 mb-0.5">Citizen Services (CitSer)</div>
-                  <div class="text-slate-500 text-[10px]">Demographic data, member lookups, draft registration (<code class="text-slate-700">DrtAddMember</code>).</div>
-                  <div class="font-mono text-[10px] text-slate-700 mt-1">Staging: :8096/swagger | UAT: :8089/swagger</div>
-                </div>
-                <div class="bg-white p-2.5 rounded border border-slate-200">
-                  <div class="font-bold text-blue-700 mb-0.5">Common Services (ComSer)</div>
-                  <div class="text-slate-500 text-[10px]">Aadhaar e-KYC, SMS OTP dispatch, Captcha, Master lookups, RequestMaster (<code class="text-slate-700">InsertRequest</code>).</div>
-                  <div class="font-mono text-[10px] text-slate-700 mt-1">Staging: :8097/swagger | UAT: :8090/swagger</div>
-                </div>
-              </div>
+          <!-- Visual Screenshots Guide -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="border border-slate-200 rounded-lg p-3 bg-slate-50 flex flex-col items-center">
+              <img src="screenshots/motionpro_profile_config.png" alt="MotionPro Profile Configuration" class="h-44 object-contain rounded border border-slate-300 shadow-sm hover:scale-105 transition cursor-pointer" onclick="window.open(this.src)">
+              <span class="text-[11px] text-slate-500 font-medium mt-2">Figure 1: MotionPro Client Profile Setup (Host: 103.86.26.3, Account: SAMAGRA_newstag)</span>
             </div>
-            <div class="text-[11px] text-blue-800 bg-blue-50 p-2.5 rounded border border-blue-200 mt-3">
-              <i class="fa-solid fa-lightbulb mr-1"></i><strong>How UI Interacts</strong>: Angular calls ComSer to verify OTP & eKYC, CitSer to draft members, and ComSer to submit the final application.
-            </div>
-          </div>
-
-          <!-- Step 3: Database Direct Connection -->
-          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center space-x-2 mb-3">
-                <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs">3</span>
-                <h3 class="font-bold text-sm text-slate-900">Database Direct Connectivity (DBeaver)</h3>
-              </div>
-              <p class="text-slate-600 mb-3 leading-relaxed">
-                Grey-box testing requires verifying database state behind the screen. We connect DBeaver or SSMS to MS SQL Server:
-              </p>
-              <div class="bg-white p-3 rounded-lg border border-slate-200 font-mono text-[11px] space-y-1 text-slate-700">
-                <div><strong>Host</strong>: 172.18.210.22 : 1433</div>
-                <div><strong>Database</strong>: SCDNEW_2-0</div>
-                <div><strong>Driver</strong>: Microsoft JDBC / SQL Server</div>
-                <div><strong>Auth Modes</strong>:</div>
-                <div class="pl-2 text-slate-500">• Analytical Read: SCD_USR_Read</div>
-                <div class="pl-2 text-slate-500">• UAT Execution: SCD_UAT</div>
-              </div>
-            </div>
-            <div class="text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded border border-emerald-200 mt-3">
-              <i class="fa-solid fa-database mr-1"></i><strong>Core SQL Check</strong>: Always query <code class="font-mono">[AUDIT_LOG].[TBL_PROCEDURE_LOG]</code> when an API returns 500 to see the exact SQL procedure error message and line number!
+            <div class="border border-slate-200 rounded-lg p-3 bg-slate-50 flex flex-col items-center">
+              <img src="screenshots/motionpro_vpn_list.png" alt="MotionPro VPN Profiles List" class="h-44 object-contain rounded border border-slate-300 shadow-sm hover:scale-105 transition cursor-pointer" onclick="window.open(this.src)">
+              <span class="text-[11px] text-slate-500 font-medium mt-2">Figure 2: Active Profiles Dashboard (Connecting to "Samara" / "UAT")</span>
             </div>
           </div>
         </div>
 
-        <!-- Essential SQL Queries Reference Drawer -->
-        <div class="mt-6 bg-slate-900 text-slate-100 p-4 rounded-xl font-mono text-[11px] overflow-x-auto space-y-3">
-          <div class="text-xs text-indigo-400 font-bold mb-1 flex items-center space-x-2">
-            <i class="fa-solid fa-terminal"></i>
-            <span>Essential Live Database Queries for QA Engineers (MS SQL Server)</span>
+        <!-- PART 2: THE FRONTEND & MICROSERVICE APIS -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+          <div class="flex items-center space-x-3">
+            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-extrabold flex items-center justify-center text-sm shadow-sm">2</span>
+            <h3 class="text-base font-bold text-slate-900">Application Tier: Angular SPA, .NET Microservices & Swagger (OpenAPI)</h3>
           </div>
-          <div>
-            <span class="text-slate-400">-- 1. Inspect recent procedure execution errors (Diagnose 500 crashes):</span><br>
-            <span class="text-indigo-300">SELECT TOP 10</span> CREATED_ON, PROCEDURES_NAME, LOG_LEVEL, LOG_MESSAGE, ERROR_NO, ERROR_LINES <br>
-            <span class="text-indigo-300">FROM</span> [AUDIT_LOG].[TBL_PROCEDURE_LOG] <span class="text-indigo-300">ORDER BY</span> CREATED_ON DESC;
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            The software application is decoupled into a frontend client and two independent domain-driven backend microservices:
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <!-- Angular Card -->
+            <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 space-y-2">
+              <div class="font-bold text-slate-900 text-sm flex items-center space-x-1.5 text-indigo-700">
+                <i class="fa-brands fa-angular text-red-500 text-base"></i>
+                <span>Angular SPA Web Portal</span>
+              </div>
+              <p class="text-slate-600 leading-relaxed">
+                Runs entirely in the citizen's browser. Loads once (Single Page Application) and swaps views dynamically via the Angular Router (<code>/auth/register</code>, <code>/auth/demographic</code>, <code>/auth/nr-member</code>, <code>/auth/preview</code>).
+              </p>
+              <div class="bg-white p-2.5 rounded border border-slate-200 text-[11px]">
+                <strong>Client-Side Encryption</strong>: Before any JSON payload travels across the wire, Angular encrypts the text using <code>CryptoJS.AES</code> with a shared secret key, outputting an unreadable base64 ciphertext string.
+              </div>
+            </div>
+
+            <!-- CitSer Card -->
+            <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 space-y-2">
+              <div class="font-bold text-slate-900 text-sm flex items-center space-x-1.5 text-blue-700">
+                <i class="fa-solid fa-id-card text-blue-500 text-base"></i>
+                <span>Citizen Services (CitSer)</span>
+              </div>
+              <p class="text-slate-600 leading-relaxed">
+                Dedicated exclusively to citizen profile mutations: demographic validation, family lookups, and draft member creation (<code>POST /CitSer/Samagra/DrtAddMember</code>).
+              </p>
+              <div class="bg-white p-2.5 rounded border border-slate-200 text-[11px] font-mono">
+                <div>Staging: <a href="https://172.16.100.5:8096/swagger/index.html" target="_blank" class="text-blue-600 underline">:8096/swagger</a></div>
+                <div>UAT: <a href="http://172.18.210.24:8089/swagger/index.html" target="_blank" class="text-blue-600 underline">:8089/swagger</a></div>
+              </div>
+            </div>
+
+            <!-- ComSer Card -->
+            <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 space-y-2">
+              <div class="font-bold text-slate-900 text-sm flex items-center space-x-1.5 text-teal-700">
+                <i class="fa-solid fa-server text-teal-500 text-base"></i>
+                <span>Common Services (ComSer)</span>
+              </div>
+              <p class="text-slate-600 leading-relaxed">
+                Shared utility infrastructure: Aadhaar e-KYC integration (AUA server), Captcha verification, SMS OTP generation, geographic master data, and universal request submission (<code>InsertRequest</code>).
+              </p>
+              <div class="bg-white p-2.5 rounded border border-slate-200 text-[11px] font-mono">
+                <div>Staging: <a href="https://172.16.100.5:8097/swagger/index.html" target="_blank" class="text-teal-600 underline">:8097/swagger</a></div>
+                <div>UAT: <a href="http://172.18.210.24:8090/swagger/index.html" target="_blank" class="text-teal-600 underline">:8090/swagger</a></div>
+              </div>
+            </div>
           </div>
-          <div>
-            <span class="text-slate-400">-- 2. Inspect members saved in temporary draft staging before final submission:</span><br>
-            <span class="text-indigo-300">SELECT</span> TEMP_SAMAGRA_ID, TEMP_FAMILY_ID, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, GENDER_ID, RELATION_ID <br>
-            <span class="text-indigo-300">FROM</span> [REQUESTS].[TBL_SAMAGRA_FAMILY_MEMBER_CRTN_RQST] <br>
-            <span class="text-indigo-300">WHERE</span> TEMP_FAMILY_ID = 100000606 <span class="text-indigo-300">ORDER BY</span> CREATED_DATE DESC;
-          </div>
-          <div>
-            <span class="text-slate-400">-- 3. Verify if submission committed or rolled back:</span><br>
-            <span class="text-indigo-300">SELECT</span> REQ_ID, MODULE_ID, TEMP_FAMILY_ID, PRIMARY_MOBILE_NUMBER, CREATED_DATE, ACTION_ID, LEVEL_ID <br>
-            <span class="text-indigo-300">FROM</span> [REQUESTS].[TBL_COMMON_REQUEST_MASTER] <br>
-            <span class="text-indigo-300">WHERE</span> TEMP_FAMILY_ID = 100000606;
+
+          <!-- Deep-Dive on Swagger / OpenAPI for QA -->
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3 text-xs">
+            <h4 class="font-bold text-sm text-slate-900 flex items-center space-x-2">
+              <i class="fa-solid fa-book-open text-indigo-600"></i>
+              <span>What is Swagger (OpenAPI) and How Testers Use It</span>
+            </h4>
+            <p class="text-slate-600 leading-relaxed">
+              Swagger UI is an interactive, auto-generated documentation portal generated directly from the backend .NET C# controllers. As a QA engineer, Swagger is your most powerful tool:
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[11px]">
+              <div class="bg-white p-3 rounded-lg border border-slate-200">
+                <div class="font-bold text-slate-800 mb-1">1. Direct API Execution ("Try it out"):</div>
+                <p class="text-slate-600">You can trigger APIs directly without clicking through the UI. You can test edge payloads (null values, SQL injection strings, boundary ages) that the frontend form might prevent you from entering.</p>
+              </div>
+              <div class="bg-white p-3 rounded-lg border border-slate-200">
+                <div class="font-bold text-slate-800 mb-1">2. HTTP Response Status Codes:</div>
+                <ul class="text-slate-600 space-y-0.5 list-disc list-inside">
+                  <li><code class="text-emerald-700 font-bold">200 OK</code>: Success; JSON response payload returned.</li>
+                  <li><code class="text-amber-700 font-bold">400 Bad Request</code>: Validation error (e.g., missing parameter).</li>
+                  <li><code class="text-red-700 font-bold">403 Forbidden</code>: Expired JWT token or CSRF violation.</li>
+                  <li><code class="text-red-800 font-bold">500 Server Error</code>: Unhandled crash or database rollback!</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- PART 3: THE DATABASE LAYER & DBEAVER -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+          <div class="flex items-center space-x-3">
+            <span class="w-8 h-8 rounded-lg bg-emerald-600 text-white font-extrabold flex items-center justify-center text-sm shadow-sm">3</span>
+            <h3 class="text-base font-bold text-slate-900">Database Tier: MS SQL Server, Schemas & Transaction Atomicity</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            In grey-box software testing, you must never assume an action succeeded just because a UI green toast popped up. You must verify the actual bytes committed in the relational database.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+            <!-- How to connect DBeaver -->
+            <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50 space-y-3">
+              <h4 class="font-bold text-sm text-slate-900 flex items-center space-x-2 text-indigo-700">
+                <i class="fa-solid fa-wrench"></i>
+                <span>How to Connect DBeaver to SCDNEW_2-0</span>
+              </h4>
+              <p class="text-slate-600 leading-relaxed">
+                <strong>DBeaver Community</strong> is a free, cross-platform universal database manager. To connect:
+              </p>
+              <ol class="space-y-1.5 list-decimal list-inside text-slate-700 text-[11px]">
+                <li>Ensure <strong>MotionPro VPN is connected</strong> (or port 1433 will timeout).</li>
+                <li>In DBeaver, click <strong>New Database Connection</strong> &rarr; Select <strong>Microsoft SQL Server</strong>.</li>
+                <li><strong>Host</strong>: <code class="bg-white px-1.5 py-0.5 rounded border font-mono">172.18.210.22</code> | <strong>Port</strong>: <code class="bg-white px-1.5 py-0.5 rounded border font-mono">1433</code></li>
+                <li><strong>Database</strong>: <code class="bg-white px-1.5 py-0.5 rounded border font-mono">SCDNEW_2-0</code></li>
+                <li><strong>Authentication</strong>: SQL Server Authentication</li>
+                <li><strong>Username</strong>: <code class="font-mono">SCD_USR_Read</code> (Analytical) or <code class="font-mono">SCD_UAT</code></li>
+                <li>Click <strong>Test Connection</strong> &rarr; Click <strong>Finish</strong>.</li>
+              </ol>
+            </div>
+
+            <!-- Concepts: Schemas & Transactions -->
+            <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50 space-y-3">
+              <h4 class="font-bold text-sm text-slate-900 flex items-center space-x-2 text-emerald-700">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Understanding Schemas & ACID Rollbacks</span>
+              </h4>
+              <div class="space-y-2 text-[11px] text-slate-600">
+                <div>
+                  <strong class="text-slate-800">Why are tables organized into Schemas?</strong><br>
+                  In MS SQL Server, schemas are namespaces (like folders). It separates the temporary staging sandbox (<code class="font-mono text-indigo-600">REQUESTS</code>) from the immutable permanent live citizen registry (<code class="font-mono text-emerald-600">SAMAGRA</code>), and isolates compliance logs (<code class="font-mono text-amber-600">AUDIT_LOG</code>).
+                </div>
+                <div>
+                  <strong class="text-slate-800">What is an ACID Transaction Rollback?</strong><br>
+                  When you submit a family with 5 members, the database must write to <code>TBL_COMMON_REQUEST_MASTER</code>, <code>TBL_REQUEST_DOCUMENT_MAPPING</code>, and update spouse records. If step 3 fails, SQL Server executes <code>ROLLBACK TRANSACTION</code>. It erases steps 1 and 2 completely so the database is never left with corrupt, partial records.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PART 4: THE PACKET LIFECYCLE WALKTHROUGH -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+          <div class="flex items-center space-x-3">
+            <span class="w-8 h-8 rounded-lg bg-purple-600 text-white font-extrabold flex items-center justify-center text-sm shadow-sm">4</span>
+            <h3 class="text-base font-bold text-slate-900">End-to-End Walkthrough: What Happens When a Citizen Clicks "Save & Submit"</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Follow a single user action from the browser DOM down into the database storage engine and back:
+          </p>
+
+          <div class="space-y-2 text-xs">
+            <div class="bg-slate-50 border border-slate-200 rounded-lg p-3.5 flex items-start space-x-3">
+              <span class="bg-indigo-100 text-indigo-700 font-mono font-bold px-2 py-0.5 rounded text-[10px] mt-0.5">Stage 1</span>
+              <div>
+                <strong class="text-slate-900">Client DOM Event & Form Validation</strong>:
+                <p class="text-slate-600 text-[11px] mt-0.5">The user clicks "Save & Submit" on Step 3 Preview. Angular executes <code>form.valid</code> checks. If valid, the component aggregates the member array, spousal IDs, and document models into an unencrypted JavaScript object.</p>
+              </div>
+            </div>
+
+            <div class="bg-slate-50 border border-slate-200 rounded-lg p-3.5 flex items-start space-x-3">
+              <span class="bg-blue-100 text-blue-700 font-mono font-bold px-2 py-0.5 rounded text-[10px] mt-0.5">Stage 2</span>
+              <div>
+                <strong class="text-slate-900">In-Flight Encryption & HTTP Dispatch</strong>:
+                <p class="text-slate-600 text-[11px] mt-0.5">The Angular interceptor serializes the object to JSON and encrypts it via AES. It transmits an HTTP POST to <code>https://samagrauat.samagra.gov.in/ComSer/RequestMaster/InsertRequest</code> over the MotionPro VPN tunnel.</p>
+              </div>
+            </div>
+
+            <div class="bg-slate-50 border border-slate-200 rounded-lg p-3.5 flex items-start space-x-3">
+              <span class="bg-amber-100 text-amber-700 font-mono font-bold px-2 py-0.5 rounded text-[10px] mt-0.5">Stage 3</span>
+              <div>
+                <strong class="text-slate-900">API Gateway Decryption & Stored Procedure Call</strong>:
+                <p class="text-slate-600 text-[11px] mt-0.5">The .NET ComSer controller decrypts the payload. It opens an ADO.NET connection to MS SQL Server on port 1433 and executes stored procedure <code>USP_INSERT_COMMON_REQUEST_MASTER</code>, passing the family members and document arrays.</p>
+              </div>
+            </div>
+
+            <div class="bg-slate-50 border border-slate-200 rounded-lg p-3.5 flex items-start space-x-3">
+              <span class="bg-emerald-100 text-emerald-700 font-mono font-bold px-2 py-0.5 rounded text-[10px] mt-0.5">Stage 4</span>
+              <div>
+                <strong class="text-slate-900">SQL Server Execution & The Fork (Success vs Rollback)</strong>:
+                <p class="text-slate-600 text-[11px] mt-0.5">
+                  <strong>Success Path</strong>: SQL Server generates a new <code>REQ_ID</code> in <code>TBL_COMMON_REQUEST_MASTER</code>, inserts document links into <code>TBL_REQUEST_DOCUMENT_MAPPING</code>, and returns <code>HTTP 200 OK</code>.<br>
+                  <strong>Failure Path (Our BUG-01)</strong>: A constraint fails (e.g. mutual temp spouse linking or missing infant birth cert). SQL Server hits an error, executes <code>ROLLBACK TRANSACTION</code>, and aborts. The .NET API catches the SQL exception, wraps it into <code>MDL_00_000</code>, and returns <code>HTTP 500</code>!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PART 5: EXTERNAL STATUTORY GATEWAYS -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+          <div class="flex items-center space-x-3">
+            <span class="w-8 h-8 rounded-lg bg-teal-600 text-white font-extrabold flex items-center justify-center text-sm shadow-sm">5</span>
+            <h3 class="text-base font-bold text-slate-900">External Statutory Integrations: The Ecosystem Behind the Scenes</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            The social registry does not exist in isolation. It relies on four external government gateways:
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
+              <div class="font-bold text-slate-900 flex items-center space-x-2 text-indigo-700">
+                <i class="fa-solid fa-fingerprint text-indigo-600 text-base"></i>
+                <span>1. UIDAI Aadhaar e-KYC Gateway</span>
+              </div>
+              <p class="text-slate-600 text-[11px] leading-relaxed">
+                Connects through the MPSEDC AUA (Authentication User Agency) server. UIDAI regulations strictly prohibit storing raw 12-digit Aadhaar numbers in application databases. The system stores an encrypted 18-digit <code>REF_KEY</code> from the Aadhaar Data Vault (ADV).
+              </p>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
+              <div class="font-bold text-slate-900 flex items-center space-x-2 text-blue-700">
+                <i class="fa-solid fa-comment-sms text-blue-600 text-base"></i>
+                <span>2. Telecom SMS & DLT Pipeline</span>
+              </div>
+              <p class="text-slate-600 text-[11px] leading-relaxed">
+                OTPs are dispatched via SMPP protocol through registered DLT telecom templates. Security testing requires verifying that OTPs are not leaked in plain text in client network payloads or unmasked database audit tables (<code>TBL_SMS_AUDIT</code>).
+              </p>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
+              <div class="font-bold text-slate-900 flex items-center space-x-2 text-emerald-700">
+                <i class="fa-solid fa-baby text-emerald-600 text-base"></i>
+                <span>3. Civil Registration System (CRS)</span>
+              </div>
+              <p class="text-slate-600 text-[11px] leading-relaxed">
+                Used to validate birth and death certificates. Infants &lt;1 year without Aadhaar require a valid CRS birth registration number (e.g. <code>B202623901960010864</code>), while widower status requires formal verification against death registry records.
+              </p>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
+              <div class="font-bold text-slate-900 flex items-center space-x-2 text-amber-700">
+                <i class="fa-solid fa-landmark text-amber-600 text-base"></i>
+                <span>4. Revenue & e-District / RCMS Integration</span>
+              </div>
+              <p class="text-slate-600 text-[11px] leading-relaxed">
+                Real-time API sync with MP Revenue Case Management System (RCMS) to auto-verify Domicile, Caste (SC/ST/OBC), and Income certificate numbers (e.g. <code>RS/427/2307/1053/2024</code>) directly against issuing Tehsildar digital signatures.
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-    </section>
-
-    <!-- TAB 2: 5 CORE IDENTITY MODULES -->
-    <section id="tab-modules" class="tab-content hidden space-y-6">
-      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-        <h2 class="text-base font-bold text-slate-900 mb-1 flex items-center space-x-2">
-          <i class="fa-solid fa-cubes text-indigo-600"></i>
-          <span>The 5 Core Identity Modules: Workflow & Architecture</span>
-        </h2>
-        <p class="text-xs text-slate-500 mb-6">
-          Examine the architectural mechanics, API endpoints, database interactions, and test boundaries of each core module.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6" id="module-selector-tabs">
-          <!-- Populated by JavaScript -->
-        </div>
-
-        <div id="module-detail-card" class="border border-slate-200 rounded-xl p-6 bg-slate-50/50">
-          <!-- Populated by JavaScript -->
-        </div>
-      </div>
     </section>
 
     <!-- TAB 3: 7 TESTING DIMENSIONS -->
